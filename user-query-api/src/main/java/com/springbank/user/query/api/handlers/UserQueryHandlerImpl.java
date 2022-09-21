@@ -1,6 +1,5 @@
 package com.springbank.user.query.api.handlers;
 
-import com.springbank.user.core.models.User;
 import com.springbank.user.query.api.dto.UserLookupResponse;
 import com.springbank.user.query.api.queries.FindAllUsersQuery;
 import com.springbank.user.query.api.queries.FindUserByIdQuery;
@@ -19,8 +18,7 @@ public class UserQueryHandlerImpl implements UserQueryHandler {
     @QueryHandler
     @Override
     public UserLookupResponse getUserById(FindUserByIdQuery query) {
-        User user = userRepository.findById(query.getId()).orElseThrow(IllegalArgumentException::new);
-        return new UserLookupResponse(user);
+        return new UserLookupResponse(userRepository.findById(query.getId()).orElse(null));
     }
 
     @QueryHandler
