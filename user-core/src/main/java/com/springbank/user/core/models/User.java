@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -26,5 +27,6 @@ public class User {
     @Email(message = "유효한 이메일 주소를 입력하세요")
     private String emailAddress;
     @NotNull(message = "계정 자격 증명을 입력하세요")
+    @Valid
     private Account account;
 }
