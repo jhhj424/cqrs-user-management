@@ -21,7 +21,7 @@ public class UserLookupController {
 
     private final QueryGateway queryGateway;
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<UserLookupResponse> getAllUsers() {
         try {
             var query = new FindAllUsersQuery();
@@ -40,7 +40,7 @@ public class UserLookupController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/byId/{id}")
     public ResponseEntity<UserLookupResponse> getUserById(@PathVariable(value = "id") String id) {
         try {
             var query = new FindUserByIdQuery(id);
