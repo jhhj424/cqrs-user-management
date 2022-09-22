@@ -59,7 +59,7 @@ public class UserLookupController {
         }
     }
 
-    @GetMapping("/{filter}")
+    @GetMapping("/byFilter/{filter}")
     public ResponseEntity<UserLookupResponse> searchUserByFilter(@PathVariable(value = "filter") String filter) {
         try {
             var query = new SearchUsersQuery(filter);
